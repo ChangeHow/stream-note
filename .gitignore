@@ -39,3 +39,4 @@ coverage/
 # Nix
 result
 .direnv/
+packages/server/data/
