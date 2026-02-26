@@ -45,6 +45,27 @@
 
 ## 开发规范
 
+### 依赖管理
+
+- **禁止依赖 SemVer**: 所有依赖必须使用 **固定版本** (Strict Versioning)。
+  - `package.json` 中禁止使用 `^` 或 `~` 前缀。
+  - *示例*: `"react": "19.0.0"` (Correct), `"react": "^19.0.0"` (Wrong).
+
+### 前端架构
+
+- **Hooks 库**: 日常 Hooks 必须使用 **[ahooks](https://ahooks.js.org)**。
+  - 禁止手动编写 `useDebounce`, `useThrottle` 等通用 Hooks。
+- **状态管理**: 必须使用 **[Jotai](https://jotai.org)**。
+  - 避免深层 Prop Drilling。
+  - 使用原子化状态管理。
+- **副作用管理**: **禁止直接使用 `useEffect`**。
+  - 必须根据场景使用 ahooks 提供的替代方案：
+    - 初始化逻辑 -> `useMount`
+    - 清理逻辑 -> `useUnmount`
+    - 依赖变更 -> `useUpdateEffect`
+    - 异步操作 -> `useRequest` / `useAsyncEffect`
+    - 防抖/节流 -> `useDebounceEffect` / `useThrottleEffect`
+
 ### 必须通过的检查
 
 每一次代码改动（包括新功能、修复、重构）都 **必须** 确保以下检查全部通过后再提交：
@@ -71,9 +92,11 @@
 - **运行时**: Bun
 - **后端**: Hono（`packages/server`）
 - **前端**: React 19 + TanStack Router/Query + shadcn/ui + Tailwind CSS v4（`packages/web`）
+- **状态管理**: Jotai
+- **Hooks**: ahooks
 - **打包**: Rspack（RSC 实验性支持已开启）
 - **语言**: TypeScript（严格模式）
-- **测试**: Vitest
+- **测试**: Vitest, Playwright
 - **Lint**: oxlint（typeaware，严格规则，前后端分离配置）
 - **格式化**: oxfmt（根目录统一配置）
 - **环境管理**: Nix（flake.nix）
