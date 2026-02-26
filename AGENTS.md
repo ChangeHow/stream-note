@@ -37,6 +37,8 @@
 | Unit      | verify logic A | PASS   |
 | E2E       | verify flow B  | PASS   |
 
+**此外，每次任务完成后，必须提供应用当前的截图，以供用户验收视觉效果。**
+
 ## 沟通规范
 
 **所有的 PR 描述、Commit Message、以及与用户的对话回复，必须使用中文。**
