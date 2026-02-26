@@ -7,16 +7,16 @@
     "dev": "bun run --hot src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target bun",
     "start": "bun dist/index.js",
-    "lint": "oxlint --tsconfig tsconfig.json .",
+    "lint": "oxlint --type-aware --tsconfig tsconfig.json .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
-    "hono": "^4.7.4"
+    "hono": "4.7.4"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.4",
-    "@types/node": "^22.13.9",
-    "vitest": "^3.0.7"
+    "@types/bun": "1.2.4",
+    "@types/node": "22.13.9",
+    "vitest": "3.0.7"
   }
 }

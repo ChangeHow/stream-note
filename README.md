@@ -11,20 +11,20 @@
 
 ## 技术栈
 
-| 层       | 技术                                                                          |
-| -------- | ----------------------------------------------------------------------------- |
-| 运行时   | [Bun](https://bun.sh)                                                         |
-| 后端框架 | [Hono](https://hono.dev)                                                      |
-| 前端框架 | [React 19](https://react.dev)                                                 |
-| 路由     | [TanStack Router](https://tanstack.com/router)                                |
-| 数据请求 | [TanStack Query](https://tanstack.com/query)                                  |
+| 层       | 技术                                                                            |
+| -------- | ------------------------------------------------------------------------------- |
+| 运行时   | [Bun](https://bun.sh)                                                           |
+| 后端框架 | [Hono](https://hono.dev)                                                        |
+| 前端框架 | [React 19](https://react.dev)                                                   |
+| 路由     | [TanStack Router](https://tanstack.com/router)                                  |
+| 数据请求 | [TanStack Query](https://tanstack.com/query)                                    |
 | UI 组件  | [shadcn/ui](https://ui.shadcn.com) + [Tailwind CSS v4](https://tailwindcss.com) |
 | 前端打包 | [Rspack](https://rspack.dev)（RSC 实验性支持）                                  |
-| 语言     | [TypeScript](https://www.typescriptlang.org)                                  |
-| 测试     | [Vitest](https://vitest.dev)                                                  |
-| Lint     | [oxlint](https://oxc.rs/docs/guide/usage/linter.html)                         |
-| 格式化   | [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)                       |
-| 环境管理 | [Nix](https://nixos.org)                                                      |
+| 语言     | [TypeScript](https://www.typescriptlang.org)                                    |
+| 测试     | [Vitest](https://vitest.dev)                                                    |
+| Lint     | [oxlint](https://oxc.rs/docs/guide/usage/linter.html)                           |
+| 格式化   | [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)                         |
+| 环境管理 | [Nix](https://nixos.org)                                                        |
 
 ## 快速开始
 

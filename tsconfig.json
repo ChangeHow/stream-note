@@ -8,9 +8,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "references": [
-    { "path": "packages/web" },
-    { "path": "packages/server" }
-  ],
+  "references": [{ "path": "packages/web" }, { "path": "packages/server" }],
   "files": []
 }

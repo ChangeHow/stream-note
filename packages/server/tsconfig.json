@@ -9,11 +9,10 @@
     "resolveJsonModule": true,
     "outDir": "dist",
     "rootDir": "src",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
-    "types": ["bun-types"],
+    "types": ["bun"],
     "composite": true
   },
   "include": ["src/**/*"],

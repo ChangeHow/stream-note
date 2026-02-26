@@ -1,17 +1,13 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "typescript",
-    "unicorn",
-    "import",
-    "promise"
-  ],
+  "plugins": ["typescript", "unicorn", "import", "promise"],
   "categories": {
-    "correctness": "error",
-    "suspicious": "error",
-    "pedantic": "error",
-    "style": "error",
-    "restriction": "error"
+    "correctness": "deny",
+    "suspicious": "deny",
+    "pedantic": "deny",
+    "perf": "deny",
+    "style": "deny",
+    "restriction": "deny"
   },
   "rules": {
     "no-console": "off",

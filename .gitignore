@@ -1,7 +1,6 @@
 # Dependencies
 node_modules/
 .yarn/
-bun.lock
 
 # Build outputs
 dist/
