@@ -37,6 +37,10 @@
 | Unit      | verify logic A | PASS   |
 | E2E       | verify flow B  | PASS   |
 
+## 沟通规范
+
+**所有的 PR 描述、Commit Message、以及与用户的对话回复，必须使用中文。**
+
 ## 开发规范
 
 ### 必须通过的检查
