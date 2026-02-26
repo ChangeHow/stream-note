@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.yarn/
+bun.lock
+
+# Build outputs
+dist/
+.rspack/
+
+# Notes data directory (local data, do not commit)
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+bun-debug.log*
+
+# Test coverage
+coverage/
+.vitest/
+
+# TypeScript
+*.tsbuildinfo
