@@ -36,3 +36,7 @@ coverage/
 
 # TypeScript
 *.tsbuildinfo
+
+# Nix
+result
+.direnv/

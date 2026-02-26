@@ -4,10 +4,10 @@ import * as path from "path";
 
 export default defineConfig({
   entry: {
-    main: "./src/client/index.tsx",
+    main: "./src/index.tsx",
   },
   output: {
-    path: path.resolve(import.meta.dirname, "dist/client"),
+    path: path.resolve(import.meta.dirname, "dist"),
     filename: "[name].[contenthash].js",
     clean: true,
   },
@@ -16,6 +16,9 @@ export default defineConfig({
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
     },
+  },
+  experiments: {
+    css: true,
   },
   module: {
     rules: [
@@ -42,14 +45,14 @@ export default defineConfig({
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
-        type: "javascript/auto",
+        use: ["postcss-loader"],
+        type: "css",
       },
     ],
   },
   plugins: [
     new rspack.HtmlRspackPlugin({
-      template: "./src/client/index.html",
+      template: "./src/index.html",
       filename: "index.html",
     }),
   ],

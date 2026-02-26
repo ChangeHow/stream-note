@@ -21,20 +21,29 @@
 
 项目已配置 lint-staged + husky pre-commit hook，提交时自动执行：
 
-- `oxlint --tsconfig tsconfig.json` — 对暂存文件进行 lint
+- `oxlint --tsconfig tsconfig.json` — 对暂存文件进行 lint（按包区分配置）
 - `oxfmt --check` — 对暂存文件进行格式检查
-- `tsc --noEmit` — 全项目 TypeScript 类型检查
+- `tsc --noEmit` — 各包 TypeScript 类型检查
 
 ### 技术栈
 
 - **运行时**: Bun
-- **后端**: Hono
-- **前端**: React 19 + TanStack Router/Query + shadcn/ui + Tailwind CSS v4
-- **打包**: Rspack
+- **后端**: Hono（`packages/server`）
+- **前端**: React 19 + TanStack Router/Query + shadcn/ui + Tailwind CSS v4（`packages/web`）
+- **打包**: Rspack（RSC 实验性支持已开启）
 - **语言**: TypeScript（严格模式）
 - **测试**: Vitest
-- **Lint**: oxlint（typeaware，严格规则）
-- **格式化**: oxfmt
+- **Lint**: oxlint（typeaware，严格规则，前后端分离配置）
+- **格式化**: oxfmt（根目录统一配置）
+- **环境管理**: Nix（flake.nix）
+
+### 项目结构
+
+本项目采用 monorepo 架构，使用 Bun workspaces 管理：
+
+- `packages/web` — 前端应用（React + shadcn/ui + Rspack）
+- `packages/server` — 后端服务（Hono + Bun）
+- `docs/` — 规格说明文件
 
 ### 代码风格
 
@@ -42,4 +51,5 @@
 - 使用 oxfmt 统一格式化
 - TypeScript 严格模式，不允许 `any`（已由 oxlint 规则强制）
 - React 使用 automatic JSX runtime（无需手动 `import React`）
-- 路径别名：`@/*` 指向 `src/*`
+- 前端路径别名：`@/*` 指向 `packages/web/src/*`
+- 后端路径别名：`@/*` 指向 `packages/server/src/*`
