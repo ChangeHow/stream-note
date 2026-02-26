@@ -1,0 +1,45 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "react-hooks", "unicorn", "import", "jsx-a11y", "promise"],
+  "categories": {
+    "correctness": "deny",
+    "suspicious": "deny",
+    "pedantic": "deny",
+    "perf": "deny",
+    "style": "deny",
+    "restriction": "deny"
+  },
+  "rules": {
+    "no-console": "off",
+    "max-lines": "off",
+    "func-style": "off",
+    "import/consistent-type-specifier-style": "off",
+    "import/exports-last": "off",
+    "import/no-named-export": "off",
+    "import/no-namespace": "off",
+    "import/no-unassigned-import": "off",
+    "import/prefer-default-export": "off",
+    "no-ternary": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/only-export-components": "off",
+    "react/react-in-jsx-scope": "off",
+    "sort-imports": "off",
+    "sort-keys": "off",
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off",
+    "typescript/no-non-null-assertion": "off",
+    "unicorn/filename-case": "off",
+    "unicorn/prefer-query-selector": "off"
+  },
+  "env": {
+    "browser": true,
+    "es2022": true
+  },
+  "settings": {
+    "react": {
+      "runtime": "automatic"
+    }
+  },
+  "ignorePatterns": ["dist/", "node_modules/", "*.config.ts", "*.config.js"]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "import", "promise"],
+  "categories": {
+    "correctness": "deny",
+    "suspicious": "deny",
+    "pedantic": "deny",
+    "perf": "deny",
+    "style": "deny",
+    "restriction": "deny"
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "id-length": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/no-default-export": "off",
+    "no-console": "off",
+    "max-lines": "off",
+    "sort-keys": "off",
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off"
+  },
+  "env": {
+    "node": true,
+    "es2022": true
+  },
+  "ignorePatterns": ["dist/", "node_modules/"]
+}
