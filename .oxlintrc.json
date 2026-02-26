@@ -1,16 +1,36 @@
 {
-  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxlint/configuration_schema.json",
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "react",
+    "react-hooks",
+    "unicorn",
+    "import",
+    "jsx-a11y",
+    "promise"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "style": "error",
+    "restriction": "error"
+  },
   "rules": {
-    "no-unused-vars": "warn",
     "no-console": "off",
-    "eqeqeq": "error",
-    "no-var": "error",
-    "prefer-const": "error"
+    "max-lines": "off",
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off"
   },
   "env": {
     "browser": true,
     "node": true,
     "es2022": true
   },
-  "ignorePatterns": ["dist/", "node_modules/", "*.config.ts"]
+  "settings": {
+    "react": {
+      "runtime": "automatic"
+    }
+  },
+  "ignorePatterns": ["dist/", "node_modules/", "*.config.ts", "*.config.js"]
 }

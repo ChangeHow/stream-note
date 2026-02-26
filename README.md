@@ -66,9 +66,19 @@ bun run test
 ### Lint & Format
 
 ```bash
-bun run lint      # oxlint
-bun run format    # oxfmt
+bun run lint          # oxlint（typeaware 严格模式）
+bun run format        # oxfmt 格式化
+bun run format:check  # oxfmt 格式检查
+bun run typecheck     # TypeScript 类型检查
 ```
+
+### 提交门禁
+
+项目使用 lint-staged + husky，提交时自动检查：
+
+- oxlint — lint 检查（typeaware）
+- oxfmt — 格式检查
+- tsc — TypeScript 类型检查
 
 ## 项目结构
 
@@ -85,13 +95,16 @@ stream-note/
 │       ├── index.tsx      # React 入口
 │       ├── index.css      # Tailwind CSS 入口
 │       └── index.html     # HTML 模板
+├── .husky/
+│   └── pre-commit         # 提交门禁（lint-staged + typecheck）
 ├── data/                  # 本地笔记数据（已加入 .gitignore）
 ├── dist/                  # 构建产物
+├── AGENTS.md              # AI 代理开发规范
 ├── postcss.config.js      # PostCSS 配置（Tailwind v4）
 ├── rspack.config.ts       # Rspack 打包配置
 ├── vitest.config.ts       # Vitest 测试配置
 ├── tsconfig.json          # TypeScript 配置
-└── .oxlintrc.json         # oxlint 规则
+└── .oxlintrc.json         # oxlint 规则（严格 + typeaware）
 ```
 
 ## License
