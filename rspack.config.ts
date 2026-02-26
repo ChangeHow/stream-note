@@ -4,7 +4,7 @@ import * as path from "path";
 
 export default defineConfig({
   entry: {
-    main: "./src/client/index.ts",
+    main: "./src/client/index.tsx",
   },
   output: {
     path: path.resolve(import.meta.dirname, "dist/client"),
@@ -30,6 +30,11 @@ export default defineConfig({
                 tsx: true,
               },
               target: "es2022",
+              transform: {
+                react: {
+                  runtime: "automatic",
+                },
+              },
             },
           },
         },
@@ -37,7 +42,7 @@ export default defineConfig({
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
         type: "javascript/auto",
       },
     ],

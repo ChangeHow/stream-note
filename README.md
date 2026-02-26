@@ -11,15 +11,19 @@
 
 ## 技术栈
 
-| 层       | 技术                                                                |
-| -------- | ------------------------------------------------------------------- |
-| 运行时   | [Bun](https://bun.sh)                                               |
-| 后端框架 | [Hono](https://hono.dev)                                            |
-| 前端打包 | [Rspack](https://rspack.dev)                                        |
-| 语言     | [TypeScript](https://www.typescriptlang.org)                        |
-| 测试     | [Vitest](https://vitest.dev)                                        |
-| Lint     | [oxlint](https://oxc.rs/docs/guide/usage/linter.html)               |
-| 格式化   | [Biome](https://biomejs.dev) (formatter only, linting via oxlint)   |
+| 层       | 技术                                                                   |
+| -------- | ---------------------------------------------------------------------- |
+| 运行时   | [Bun](https://bun.sh)                                                  |
+| 后端框架 | [Hono](https://hono.dev)                                               |
+| 前端框架 | [React 19](https://react.dev)                                          |
+| 路由     | [TanStack Router](https://tanstack.com/router)                         |
+| 数据请求 | [TanStack Query](https://tanstack.com/query)                           |
+| UI 组件  | [shadcn/ui](https://ui.shadcn.com) + [Tailwind CSS v4](https://tailwindcss.com) |
+| 前端打包 | [Rspack](https://rspack.dev)                                           |
+| 语言     | [TypeScript](https://www.typescriptlang.org)                           |
+| 测试     | [Vitest](https://vitest.dev)                                           |
+| Lint     | [oxlint](https://oxc.rs/docs/guide/usage/linter.html)                  |
+| 格式化   | [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)                |
 
 ## 快速开始
 
@@ -63,7 +67,7 @@ bun run test
 
 ```bash
 bun run lint      # oxlint
-bun run format    # biome format
+bun run format    # oxfmt
 ```
 
 ## 项目结构
@@ -71,15 +75,23 @@ bun run format    # biome format
 ```
 stream-note/
 ├── src/
-│   ├── server/        # Hono 后端（API 路由、文件存储）
-│   └── client/        # 前端应用（rspack + TypeScript）
-├── data/              # 本地笔记数据（已加入 .gitignore）
-├── dist/              # 构建产物
-├── rspack.config.ts   # Rspack 打包配置
-├── vitest.config.ts   # Vitest 测试配置
-├── tsconfig.json      # TypeScript 配置
-├── .oxlintrc.json     # oxlint 规则
-└── biome.json         # Biome 格式化配置
+│   ├── server/           # Hono 后端（API 路由、文件存储）
+│   └── client/           # 前端应用（React + TanStack + shadcn）
+│       ├── components/
+│       │   └── ui/       # shadcn/ui 组件
+│       ├── lib/
+│       │   └── utils.ts  # cn() 工具函数
+│       ├── App.tsx        # 根组件
+│       ├── index.tsx      # React 入口
+│       ├── index.css      # Tailwind CSS 入口
+│       └── index.html     # HTML 模板
+├── data/                  # 本地笔记数据（已加入 .gitignore）
+├── dist/                  # 构建产物
+├── postcss.config.js      # PostCSS 配置（Tailwind v4）
+├── rspack.config.ts       # Rspack 打包配置
+├── vitest.config.ts       # Vitest 测试配置
+├── tsconfig.json          # TypeScript 配置
+└── .oxlintrc.json         # oxlint 规则
 ```
 
 ## License
