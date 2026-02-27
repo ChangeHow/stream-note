@@ -1,36 +1,51 @@
-export interface Note {
+const API_BASE = "/api";
+const DEFAULT_LIMIT = 5;
+
+interface Note {
   date: string;
   content: string;
 }
 
-export interface NotesResponse {
+interface NotesResponse {
   notes: Note[];
   nextCursor: string | null;
   hasMore: boolean;
 }
 
-const API_BASE = "/api";
-
-export async function getNotes(limit = 5, cursor?: string): Promise<NotesResponse> {
+async function getNotes(limit = DEFAULT_LIMIT, cursor?: string): Promise<NotesResponse> {
   const params = new URLSearchParams({ limit: limit.toString() });
-  if (cursor) params.append("cursor", cursor);
+  // eslint-disable-next-line no-undefined
+  if (cursor !== undefined && cursor !== "") {
+    params.append("cursor", cursor);
+  }
 
   const res = await fetch(`${API_BASE}/notes?${params.toString()}`);
-  if (!res.ok) throw new Error("Failed to fetch notes");
-  return res.json();
+  if (!res.ok) {
+    throw new Error("Failed to fetch notes");
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+  return (await res.json()) as NotesResponse;
 }
 
-export async function getNote(date: string): Promise<Note> {
+async function getNote(date: string): Promise<Note> {
   const res = await fetch(`${API_BASE}/notes/${date}`);
-  if (!res.ok) throw new Error("Failed to fetch note");
-  return res.json();
+  if (!res.ok) {
+    throw new Error("Failed to fetch note");
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+  return (await res.json()) as Note;
 }
 
-export async function saveNote(date: string, content: string): Promise<void> {
+async function saveNote(date: string, content: string): Promise<void> {
   const res = await fetch(`${API_BASE}/notes/${date}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ content }),
   });
-  if (!res.ok) throw new Error("Failed to save note");
+  if (!res.ok) {
+    throw new Error("Failed to save note");
+  }
 }
+
+export { getNotes, getNote, saveNote };
+export type { Note, NotesResponse };

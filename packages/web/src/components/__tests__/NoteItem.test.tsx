@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { render, screen, fireEvent, waitFor, cleanup } from "@testing-library/react";
-import { NoteItem } from "../NoteItem";
+import { NoteItem } from "@/components/NoteItem";
 import * as api from "@/lib/api";
 
 // Mock the API module
@@ -26,7 +26,7 @@ describe("NoteItem", () => {
     const textarea = screen.getByRole("textbox");
     fireEvent.change(textarea, { target: { value: "New Content" } });
 
-    // ahooks useDebounceEffect uses setTimeout internally.
+    // Ahooks useDebounceEffect uses setTimeout internally.
     // We can rely on waitFor to poll until the mock is called.
     // Default wait is usually enough for 1000ms debounce if we increase timeout or mock time.
     // However, ahooks might use internal timers.
