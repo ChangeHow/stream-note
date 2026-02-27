@@ -15,6 +15,7 @@ export function NoteItem({ date, initialContent }: NoteItemProps) {
   useDebounceEffect(
     () => {
         if (content !== initialContent) {
+            // eslint-disable-next-line eslint-plugin-promise/prefer-await-to-then
             saveNote(date, content).catch(console.error);
         }
     },
@@ -32,7 +33,7 @@ export function NoteItem({ date, initialContent }: NoteItemProps) {
         </div>
         <Textarea
             value={content}
-            onChange={(e) => setContent(e.target.value)}
+            onChange={(event) => { setContent(event.target.value); }}
             className="min-h-[150px] text-lg resize-none border-none shadow-none focus-visible:ring-0 px-0 bg-transparent"
             placeholder="Write something..."
         />

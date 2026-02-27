@@ -17,9 +17,6 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "src"),
     },
   },
-  experiments: {
-    css: true,
-  },
   module: {
     rules: [
       {
@@ -49,6 +46,9 @@ export default defineConfig({
         type: "css",
       },
     ],
+  },
+  experiments: {
+    css: true,
   },
   plugins: [
     new rspack.HtmlRspackPlugin({
