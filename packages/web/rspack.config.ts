@@ -15,6 +15,8 @@ export default defineConfig({
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
+      react: path.resolve(import.meta.dirname, "../../node_modules/react"),
+      "react-dom": path.resolve(import.meta.dirname, "../../node_modules/react-dom"),
     },
   },
   module: {
